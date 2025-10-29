@@ -1,310 +1,618 @@
-# 🔐 Hash Table Simulator - Interactive Visualization# 🔐 Hash Table Simulator - Interactive Visualization
+# 🔐 Hash Table Simulator - Interactive Visualization# 🔐 Hash Table Simulator - Interactive Visualization# 🔐 Hash Table Simulator - Interactive Visualization
 
 
 
-A comprehensive educational tool for learning hash table data structures with beautiful visualizations, real-time pseudocode, and multiple collision resolution strategies.**✨ NOW WITH ENHANCED PSEUDOCODE VISUALIZATION! ✨**
+A comprehensive educational tool for learning hash table data structures with beautiful visualizations, real-time pseudocode, and multiple collision resolution strategies.
 
 
 
-![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)---
+![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)A comprehensive educational tool for learning hash table data structures with beautiful visualizations, real-time pseudocode, and multiple collision resolution strategies.**✨ NOW WITH ENHANCED PSEUDOCODE VISUALIZATION! ✨**
 
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-![Status](https://img.shields.io/badge/status-active-success)## 🚀 Quick Links
+![Status](https://img.shields.io/badge/status-active-success)
 
 
 
-## ✨ Features**New to the project?** Start here:
+## ✨ Features![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)---
 
-- 👉 **[README_FIRST.md](README_FIRST.md)** - Start here for quick orientation!
 
-### 🎯 Core Functionality- 📊 **[STATUS.md](STATUS.md)** - Quick project status overview
 
-- **Four Collision Handling Modes:**- ⭐ **[LATEST_UPDATE.md](LATEST_UPDATE.md)** - See what's new in this version
+### 🎯 Core Functionality![License](https://img.shields.io/badge/license-MIT-green)
 
-  - 🔗 **Chaining** - Linked lists in each bucket- 📖 **[INDEX.md](INDEX.md)** - Master index to all documentation
+- **Four Collision Handling Modes:**
+
+  - 🔗 **Chaining** - Linked lists in each bucket![Status](https://img.shields.io/badge/status-active-success)## 🚀 Quick Links
 
   - ➡️ **Linear Probing** - Open addressing with linear search
 
-  - 📐 **Quadratic Probing** - Open addressing with quadratic search**Want to try it right now?**
-
-  - 🔁 **Double Hashing** - Secondary hash function for probe sequence```bash
-
-python test_pseudocode.py
-
-- **Complete Operations:**```
-
-  - ➕ Insert keys (single or batch)
-
-  - 🔍 Search for keys**Want the pseudocode features?**
-
-  - 🗑️ Delete keys (with tombstone support)- 📘 **[HOW_TO_USE_PSEUDOCODE.md](HOW_TO_USE_PSEUDOCODE.md)** - User guide
-
-  - 📊 Display current state- 📗 **[PSEUDOCODE_GUIDE.md](PSEUDOCODE_GUIDE.md)** - Complete feature documentation
-
-  - 🔄 Resize and rehash dynamically- 📙 **[VISUAL_EXAMPLES.md](VISUAL_EXAMPLES.md)** - Detailed execution examples
-
-
-
-### 🖼️ Dual Interface Options---
-
-1. **GUI Mode** (Recommended)
-
-   - Beautiful tkinter-based interface## 📋 Table of Contents
-
-   - Real-time canvas visualization
-
-   - Color-coded bucket states**Four Collision Handling Modes:**
-
-   - Step-by-step pseudocode panel  - 🔗 **Chaining** - Uses linked lists in each bucket
-
-   - Collision steps viewer  - ➡️ **Linear Probing** - Open addressing with linear search
-
-   - Animated operations  - 📐 **Quadratic Probing** - Open addressing with quadratic search
-
-  - 🔁 **Double Hashing** - Open addressing using a secondary hash step size
-
-2. **Console Mode**- [Overview](#overview)
-
-   - Text-based ASCII visualization- [Project Structure](#project-structure)
-
-   - Menu-driven interface- [Installation](#installation)
-
-   - Perfect for terminals  - 🖼️ **GUI Mode** - Tkinter-based graphical interface with Pseudocode Panel and Collision Steps
-
-  - 💻 **Console Mode** - Text-based ASCII visualization with pseudocode fallback for inserts
-
-### 🧠 Educational Features- [Usage](#usage)
-
-- **Real-time Pseudocode Display** - ⚡ Animated collision visualization (linear, quadratic, double hashing)
-
-  - Block-level highlighting (loops, conditions)- [Screenshots](#screenshots)
-
-  - Variable tracking- [Demo Examples](#demo-examples)
-
-  - Step-by-step execution - 🧠 Pseudocode panel with line highlighting and variable display
-
-  - Auto-run mode with adjustable speed - 🧾 Collision Steps panel with copy/clear
-
-  - [Contributing](#contributing)
-
-- **Collision Visualization**
-
-  - Detailed probe sequence tracking## 🎯 Overview
-
-  - Formula display for each mode - 🪦 Tombstones support for open addressing deletes
-
-  - Terminal-style execution log
-
-  This project provides a complete simulation of hash table data structures with visual representations of:
-
-- **Performance Monitoring**├── gui_simulator.py        # Graphical user interface (with pseudocode + steps)
-
-  - Load factor tracking- How keys are hashed and stored in buckets
-
-  - Collision counting- How collisions occur and are resolved
-
-  - Automatic rehashing suggestions3. **Maximum Size:** Limited to 100 buckets for practical visualization
-
-- Load factor monitoring and automatic rehashing
-
-## 🚀 Quick Start
-
-Perfect for:
-
-### Prerequisites## � Future Enhancements
-
-- Python 3.7 or higher
-
-- tkinter (included with Python)- [ ] Cuckoo hashing implementation
-
-- [ ] Performance benchmarking tools
-
-### Installation- [ ] Export/import table states
-
-- [ ] Step-by-step pseudocode for search/delete
-
-1. Clone the repository:- [ ] More sophisticated hash functions
-
-```bash- [ ] Theme customization for GUI
-
-git clone https://github.com/yourusername/hash-table-simulator.git- **Three Collision Handling Modes:**
-
-cd hash-table-simulator  - 🔗 **Chaining** - Uses linked lists in each bucket
-
-```  - ➡️ **Linear Probing** - Open addressing with linear search
-
   - 📐 **Quadratic Probing** - Open addressing with quadratic search
 
-2. Verify Python installation:
+  - 🔁 **Double Hashing** - Secondary hash function for probe sequence
 
-```bash- **Complete Operations:**
+## ✨ Features**New to the project?** Start here:
 
-python --version### Demo 8: Double Hashing and Tombstones
+- **Complete Operations:**
 
-python -c "import tkinter; print('tkinter ready!')"Demonstrates double hashing probe sequences and tombstone behavior after deletions.
-
-```  - ➕ Insert keys (single or multiple)
+  - ➕ Insert keys (single or batch)- 👉 **[README_FIRST.md](README_FIRST.md)** - Start here for quick orientation!
 
   - 🔍 Search for keys
 
-3. Run the simulator:  - 🗑️ Delete keys
+  - 🗑️ Delete keys (with tombstone support)### 🎯 Core Functionality- 📊 **[STATUS.md](STATUS.md)** - Quick project status overview
 
-```bash  - 📊 Display current state
+  - 📊 Display current state
 
-# GUI Mode (Recommended)  - 🔄 Resize and rehash
-
-python gui_simulator.py
-
-- **Two Interface Options:**
-
-# Console Mode  - 🖼️ **GUI Mode** - Beautiful tkinter-based graphical interface
-
-python console_simulator.py  - 💻 **Console Mode** - Text-based ASCII visualization
+  - 🔄 Resize and rehash dynamically- **Four Collision Handling Modes:**- ⭐ **[LATEST_UPDATE.md](LATEST_UPDATE.md)** - See what's new in this version
 
 
 
-# Run all demos### Advanced Features
+### 🖼️ Dual Interface Options  - 🔗 **Chaining** - Linked lists in each bucket- 📖 **[INDEX.md](INDEX.md)** - Master index to all documentation
 
-python demo_examples.py- ⚡ Animated collision visualization
+1. **GUI Mode** (Recommended)
 
-```### Hash Functions
+   - Beautiful tkinter-based interface  - ➡️ **Linear Probing** - Open addressing with linear search
+
+   - Real-time canvas visualization
+
+   - Color-coded bucket states  - 📐 **Quadratic Probing** - Open addressing with quadratic search**Want to try it right now?**
+
+   - Step-by-step pseudocode panel
+
+   - Collision steps viewer  - 🔁 **Double Hashing** - Secondary hash function for probe sequence```bash
+
+   - Animated operations
+
+python test_pseudocode.py
+
+2. **Console Mode**
+
+   - Text-based ASCII visualization- **Complete Operations:**```
+
+   - Menu-driven interface
+
+   - Perfect for terminals  - ➕ Insert keys (single or batch)
 
 
 
-## 📖 Usage GuideWe normalize keys using a polynomial rolling approach for strings, then compute:
+### 🧠 Educational Features  - 🔍 Search for keys**Want the pseudocode features?**
 
-- h1(key) = key % m
+- **Real-time Pseudocode Display**
 
-### GUI Interface- h2(key) = 1 + (key % (m-1)) for double hashing (never zero)
+  - Block-level highlighting (loops, conditions)  - 🗑️ Delete keys (with tombstone support)- 📘 **[HOW_TO_USE_PSEUDOCODE.md](HOW_TO_USE_PSEUDOCODE.md)** - User guide
+
+  - Variable tracking
+
+  - Step-by-step execution  - 📊 Display current state- 📗 **[PSEUDOCODE_GUIDE.md](PSEUDOCODE_GUIDE.md)** - Complete feature documentation
+
+  - Auto-run mode with adjustable speed
+
+    - 🔄 Resize and rehash dynamically- 📙 **[VISUAL_EXAMPLES.md](VISUAL_EXAMPLES.md)** - Detailed execution examples
+
+- **Collision Visualization**
+
+  - Detailed probe sequence tracking
+
+  - Formula display for each mode
+
+  - Terminal-style execution log### 🖼️ Dual Interface Options---
+
+  
+
+- **Performance Monitoring**1. **GUI Mode** (Recommended)
+
+  - Load factor tracking
+
+  - Collision counting   - Beautiful tkinter-based interface## 📋 Table of Contents
+
+  - Automatic rehashing suggestions
+
+   - Real-time canvas visualization
+
+## 🚀 Quick Start
+
+   - Color-coded bucket states**Four Collision Handling Modes:**
+
+### Option 1: Download Executable (Windows - No Python Required!)
+
+   - Step-by-step pseudocode panel  - 🔗 **Chaining** - Uses linked lists in each bucket
+
+1. Go to [Releases](https://github.com/har2312/Hashing_Project/releases)
+
+2. Download `HashTableSimulator.exe`   - Collision steps viewer  - ➡️ **Linear Probing** - Open addressing with linear search
+
+3. Run the executable - that's it!
+
+   - Animated operations  - 📐 **Quadratic Probing** - Open addressing with quadratic search
+
+### Option 2: Run from Source
+
+  - 🔁 **Double Hashing** - Open addressing using a secondary hash step size
+
+**Prerequisites:**
+
+- Python 3.7 or higher2. **Console Mode**- [Overview](#overview)
+
+- tkinter (included with Python)
+
+   - Text-based ASCII visualization- [Project Structure](#project-structure)
+
+**Installation:**
+
+   - Menu-driven interface- [Installation](#installation)
+
+```bash
+
+# Clone the repository   - Perfect for terminals  - 🖼️ **GUI Mode** - Tkinter-based graphical interface with Pseudocode Panel and Collision Steps
+
+git clone https://github.com/har2312/Hashing_Project.git
+
+cd Hashing_Project  - 💻 **Console Mode** - Text-based ASCII visualization with pseudocode fallback for inserts
 
 
 
-1. **Create a Hash Table:**These are exposed via `utils.normalize_key`, `utils.hash1`, and `utils.hash2` for explainable UI.
+# Verify Python### 🧠 Educational Features- [Usage](#usage)
 
-   - Set table size (1-100)- 📈 Real-time load factor monitoring
+python --version
 
-   - Choose collision mode- 🎨 Color-coded bucket states
+python -c "import tkinter; print('tkinter ready!')"- **Real-time Pseudocode Display** - ⚡ Animated collision visualization (linear, quadratic, double hashing)
 
-   - Click "Create New Table"- 📝 Operation logging
 
-- 🔄 Dynamic mode switching
 
-2. **Insert Keys:**- 📊 Statistical information
+# Run the simulator  - Block-level highlighting (loops, conditions)- [Screenshots](#screenshots)
 
-   - Enter keys (comma-separated for multiple)- ⚠️ Automatic rehashing warnings
+python gui_simulator.py        # GUI Mode
+
+python console_simulator.py    # Console Mode  - Variable tracking- [Demo Examples](#demo-examples)
+
+python demo_examples.py        # Run all demos
+
+```  - Step-by-step execution - 🧠 Pseudocode panel with line highlighting and variable display
+
+
+
+## 📖 Usage Guide  - Auto-run mode with adjustable speed - 🧾 Collision Steps panel with copy/clear
+
+
+
+### GUI Interface  - [Contributing](#contributing)
+
+
+
+1. **Create a Hash Table:**- **Collision Visualization**
+
+   - Set table size (1-100)
+
+   - Choose collision mode  - Detailed probe sequence tracking## 🎯 Overview
+
+   - Click "Create New Table"
+
+  - Formula display for each mode - 🪦 Tombstones support for open addressing deletes
+
+2. **Insert Keys:**
+
+   - Enter keys (comma-separated for multiple)  - Terminal-style execution log
 
    - Click "➕ Insert"
 
-   - Watch real-time visualization and pseudocode## 📁 Project Structure
+   - Watch real-time visualization and pseudocode  This project provides a complete simulation of hash table data structures with visual representations of:
 
 
 
-3. **Operations:**```
+3. **Operations:**- **Performance Monitoring**├── gui_simulator.py        # Graphical user interface (with pseudocode + steps)
 
-   - **Search:** Find keys and highlight resultsHashing_Project/
+   - **Search:** Find keys and highlight results
 
-   - **Delete:** Remove keys (tombstones for open addressing)│
+   - **Delete:** Remove keys (tombstones for open addressing)  - Load factor tracking- How keys are hashed and stored in buckets
 
-   - **Show All Keys:** List all stored keys├── hash_table.py           # Core hash table implementation
+   - **Show All Keys:** List all stored keys
 
-   - **Resize:** Change table size with automatic rehashing├── gui_simulator.py        # Graphical user interface
+   - **Resize:** Change table size with automatic rehashing  - Collision counting- How collisions occur and are resolved
 
-├── console_simulator.py    # Console-based interface
 
-4. **Pseudocode Panel:**├── demo_examples.py        # Demonstration scripts
 
-   - Click "Step" to advance line-by-line├── README.md              # This file
+4. **Pseudocode Panel:**  - Automatic rehashing suggestions3. **Maximum Size:** Limited to 100 buckets for practical visualization
 
-   - Click "Auto Run" for automatic execution└── requirements.txt       # Python dependencies (if any)
+   - Click "Step" to advance line-by-line
 
-   - Adjust animation speed with slider```
+   - Click "Auto Run" for automatic execution- Load factor monitoring and automatic rehashing
 
-   - View variable values in real-time
+   - Adjust animation speed with slider
 
-## 🚀 Installation
+   - View variable values in real-time## 🚀 Quick Start
 
-### Console Interface
 
-### Prerequisites
 
-Simple menu-driven options:- Python 3.7 or higher
+### Console InterfacePerfect for:
 
-```- tkinter (usually included with Python)
 
-1. Create New Hash Table
 
-2. Insert Key(s)### Setup Steps
+Simple menu-driven options:### Prerequisites## � Future Enhancements
 
-3. Search Key
+```
 
-4. Delete Key1. **Clone or Download the Project:**
+1. Create New Hash Table- Python 3.7 or higher
 
-5. Display Hash Table   ```bash
+2. Insert Key(s)
 
-6. Show All Keys   cd Hashing_Project
+3. Search Key- tkinter (included with Python)- [ ] Cuckoo hashing implementation
 
-7. Get Load Factor   ```
+4. Delete Key
+
+5. Display Hash Table- [ ] Performance benchmarking tools
+
+6. Show All Keys
+
+7. Get Load Factor### Installation- [ ] Export/import table states
 
 8. Resize & Rehash
 
-9. Clear Table2. **Verify Python Installation:**
+9. Clear Table- [ ] Step-by-step pseudocode for search/delete
 
-10. Change Collision Mode   ```bash
+10. Change Collision Mode
 
-0. Exit   python --version
+0. Exit1. Clone the repository:- [ ] More sophisticated hash functions
 
-```   ```
+```
 
-   Should show Python 3.7 or higher
+```bash- [ ] Theme customization for GUI
 
 ## 🔧 Collision Handling Explained
 
-3. **Test tkinter (for GUI):**
+git clone https://github.com/yourusername/hash-table-simulator.git- **Three Collision Handling Modes:**
 
-### Chaining   ```bash
+### Chaining
 
-```   python -c "import tkinter; print('tkinter is installed')"
+```cd hash-table-simulator  - 🔗 **Chaining** - Uses linked lists in each bucket
 
-[0] → [ 10 ] → [ 20 ] → [ 30 ]   ```
+[0] → [ 10 ] → [ 20 ] → [ 30 ]
 
-[1] → [ EMPTY ]
+[1] → [ EMPTY ]```  - ➡️ **Linear Probing** - Open addressing with linear search
 
-[2] → [ 12 ]4. **No additional dependencies required!** The project uses only Python standard library.
+[2] → [ 12 ]
 
-```
+```  - 📐 **Quadratic Probing** - Open addressing with quadratic search
 
-- Each bucket holds a linked list## 📖 Usage
+- Each bucket holds a linked list
 
-- No table size limit
+- No table size limit2. Verify Python installation:
 
-- Simple implementation### Option 1: Graphical Interface (Recommended)
+- Simple implementation
 
+```bash- **Complete Operations:**
 
+### Linear Probing
 
-### Linear ProbingRun the GUI simulator:
+```python --version### Demo 8: Double Hashing and Tombstones
 
-``````bash
+h(k, i) = (h(k) + i) mod m
 
-h(k, i) = (h(k) + i) mod mpython gui_simulator.py
-
-``````
+```python -c "import tkinter; print('tkinter ready!')"Demonstrates double hashing probe sequences and tombstone behavior after deletions.
 
 - Probe next sequential bucket
 
-- Good cache performance#### GUI Controls:
+- Good cache performance```  - ➕ Insert keys (single or multiple)
 
 - Can cause clustering
 
+  - 🔍 Search for keys
+
+### Quadratic Probing
+
+```3. Run the simulator:  - 🗑️ Delete keys
+
+h(k, i) = (h(k) + i²) mod m
+
+``````bash  - 📊 Display current state
+
+- Probe with quadratic increments
+
+- Reduces primary clustering# GUI Mode (Recommended)  - 🔄 Resize and rehash
+
+- Better distribution
+
+python gui_simulator.py
+
+### Double Hashing
+
+```- **Two Interface Options:**
+
+h(k, i) = (h1(k) + i * h2(k)) mod m
+
+h2(k) = 1 + (k mod (m-1))# Console Mode  - 🖼️ **GUI Mode** - Beautiful tkinter-based graphical interface
+
+```
+
+- Uses secondary hash functionpython console_simulator.py  - 💻 **Console Mode** - Text-based ASCII visualization
+
+- Best distribution
+
+- Minimizes clustering
+
+
+
+## 📁 Project Structure# Run all demos### Advanced Features
+
+
+
+```python demo_examples.py- ⚡ Animated collision visualization
+
+Hashing_Project/
+
+├── hash_table.py           # Core hash table implementation```### Hash Functions
+
+├── gui_simulator.py        # GUI with pseudocode & visualization
+
+├── console_simulator.py    # Console-based interface
+
+├── demo_examples.py        # Demonstration scripts
+
+├── test_pseudocode.py      # Test pseudocode features## 📖 Usage GuideWe normalize keys using a polynomial rolling approach for strings, then compute:
+
+├── test_setup.py           # Setup verification tests
+
+├── utils.py               # Utility functions (hash functions)- h1(key) = key % m
+
+├── build.py               # Build script for executables
+
+├── requirements.txt       # Dependencies (none required!)### GUI Interface- h2(key) = 1 + (key % (m-1)) for double hashing (never zero)
+
+├── run.bat                # Windows batch launcher
+
+├── .gitignore             # Git ignore rules
+
+├── LICENSE                # MIT License
+
+├── CHANGELOG.md           # Version history1. **Create a Hash Table:**These are exposed via `utils.normalize_key`, `utils.hash1`, and `utils.hash2` for explainable UI.
+
+├── DEPLOYMENT.md          # Deployment guide
+
+├── QUICKSTART.md          # Quick reference   - Set table size (1-100)- 📈 Real-time load factor monitoring
+
+└── README.md              # This file
+
+```   - Choose collision mode- 🎨 Color-coded bucket states
+
+
+
+## 🎓 Learning Outcomes   - Click "Create New Table"- 📝 Operation logging
+
+
+
+Using this simulator, you will understand:- 🔄 Dynamic mode switching
+
+
+
+✅ How hash functions map keys to indices  2. **Insert Keys:**- 📊 Statistical information
+
+✅ Why collisions occur and how to handle them  
+
+✅ Trade-offs between different collision strategies     - Enter keys (comma-separated for multiple)- ⚠️ Automatic rehashing warnings
+
+✅ Impact of load factor on performance  
+
+✅ When and why to resize hash tables     - Click "➕ Insert"
+
+✅ Real-world hashing applications  
+
+✅ Algorithm implementation with pseudocode     - Watch real-time visualization and pseudocode## 📁 Project Structure
+
+
+
+## 🎬 Demo Examples
+
+
+
+Run comprehensive demonstrations:3. **Operations:**```
+
+```bash
+
+python demo_examples.py   - **Search:** Find keys and highlight resultsHashing_Project/
+
+```
+
+   - **Delete:** Remove keys (tombstones for open addressing)│
+
+Includes:
+
+- Basic operations (insert, search, delete)   - **Show All Keys:** List all stored keys├── hash_table.py           # Core hash table implementation
+
+- Collision handling comparison
+
+- String key hashing   - **Resize:** Change table size with automatic rehashing├── gui_simulator.py        # Graphical user interface
+
+- Load factor and resizing
+
+- Mixed operations├── console_simulator.py    # Console-based interface
+
+- Quadratic probing details
+
+- Double hashing and tombstones4. **Pseudocode Panel:**├── demo_examples.py        # Demonstration scripts
+
+- Edge case testing
+
+   - Click "Step" to advance line-by-line├── README.md              # This file
+
+## 📊 Technical Details
+
+   - Click "Auto Run" for automatic execution└── requirements.txt       # Python dependencies (if any)
+
+### Time Complexity
+
+| Operation | Average | Worst Case |   - Adjust animation speed with slider```
+
+|-----------|---------|------------|
+
+| Insert    | O(1)    | O(n)      |   - View variable values in real-time
+
+| Search    | O(1)    | O(n)      |
+
+| Delete    | O(1)    | O(n)      |## 🚀 Installation
+
+
+
+### Space Complexity### Console Interface
+
+- **Chaining:** O(n + m) where n = elements, m = buckets
+
+- **Open Addressing:** O(m) where m = buckets### Prerequisites
+
+
+
+### Load Factor GuidelinesSimple menu-driven options:- Python 3.7 or higher
+
+- ✅ **< 0.5** - Optimal performance
+
+- ⚠️ **0.5 - 0.75** - Acceptable```- tkinter (usually included with Python)
+
+- ❌ **> 0.75** - Consider resizing
+
+1. Create New Hash Table
+
+## 🎨 GUI Features
+
+2. Insert Key(s)### Setup Steps
+
+- **Color-Coded Visualization:**
+
+  - White: Empty buckets3. Search Key
+
+  - Green: Filled buckets
+
+  - Orange: Collision occurred4. Delete Key1. **Clone or Download the Project:**
+
+  - Gray: Tombstone (deleted)
+
+  - Blue: Search result5. Display Hash Table   ```bash
+
+
+
+- **Interactive Panels:**6. Show All Keys   cd Hashing_Project
+
+  - Control panel with all operations
+
+  - Canvas visualization with scrolling7. Get Load Factor   ```
+
+  - Pseudocode panel with highlighting
+
+  - Collision steps terminal8. Resize & Rehash
+
+  - Status bar with real-time stats
+
+9. Clear Table2. **Verify Python Installation:**
+
+- **Animations:**
+
+  - Adjustable speed (200-2000ms)10. Change Collision Mode   ```bash
+
+  - Step-by-step execution
+
+  - Auto-run mode0. Exit   python --version
+
+
+
+## 🚀 Deployment```   ```
+
+
+
+### Create Your Own Executable   Should show Python 3.7 or higher
+
+
+
+```bash## 🔧 Collision Handling Explained
+
+# Install PyInstaller
+
+pip install pyinstaller3. **Test tkinter (for GUI):**
+
+
+
+# Build executable### Chaining   ```bash
+
+python build.py
+
+```   python -c "import tkinter; print('tkinter is installed')"
+
+# Or manually:
+
+pyinstaller --onefile --windowed --name HashTableSimulator gui_simulator.py[0] → [ 10 ] → [ 20 ] → [ 30 ]   ```
+
+```
+
+[1] → [ EMPTY ]
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment instructions.
+
+[2] → [ 12 ]4. **No additional dependencies required!** The project uses only Python standard library.
+
+## 🤝 Contributing
+
+```
+
+Contributions welcome! Areas for improvement:
+
+- Additional collision strategies- Each bucket holds a linked list## 📖 Usage
+
+- More hash functions
+
+- Performance benchmarking- No table size limit
+
+- Unit tests
+
+- UI/UX enhancements- Simple implementation### Option 1: Graphical Interface (Recommended)
+
+- Documentation improvements
+
+
+
+## 📝 License
+
+### Linear ProbingRun the GUI simulator:
+
+MIT License - See [LICENSE](LICENSE) file for details.
+
+``````bash
+
+## 🙏 Acknowledgments
+
+h(k, i) = (h(k) + i) mod mpython gui_simulator.py
+
+Created for educational purposes to help students understand hash table data structures through interactive visualization.
+
+``````
+
+## 📧 Contact
+
+- Probe next sequential bucket
+
+- **GitHub:** [@har2312](https://github.com/har2312)
+
+- **Repository:** [Hashing_Project](https://github.com/har2312/Hashing_Project)- Good cache performance#### GUI Controls:
+
+- **Issues:** [Report a bug](https://github.com/har2312/Hashing_Project/issues)
+
+- Can cause clustering
+
+## 📜 Changelog
+
 1. **Create New Table:**
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
 
 ### Quadratic Probing   - Enter table size (1-100)
 
+---
+
 ```   - Select collision mode (chaining/linear/quadratic)
+
+**Happy Hashing! 🔐**
 
 h(k, i) = (h(k) + i²) mod m   - Click "Create New Table"
 
+*Made with ❤️ for Data Structures enthusiasts*
+
 ```
+
+**⭐ If you find this project helpful, please give it a star on GitHub!**
 
 - Probe with quadratic increments2. **Insert Keys:**
 
