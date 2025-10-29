@@ -19,6 +19,7 @@ Date: October 25, 2025
 import tkinter as tk
 from tkinter import ttk, messagebox, scrolledtext
 import time
+from typing import Optional
 from hash_table import HashTable
 from utils import normalize_key, hash1 as h1_fn, hash2 as h2_fn
 
@@ -53,7 +54,7 @@ class HashTableGUI:
         self.root.configure(bg="#f0f0f0")
         
         # Hash table instance
-        self.hash_table = None
+        self.hash_table: Optional[HashTable] = None
         self.animation_delay = 300  # milliseconds
         
         # Setup GUI components
@@ -1836,8 +1837,9 @@ class HashTableGUI:
                     idx = (h1 + i*i) % m
                     formula = f"({h1}+{i}²)%{m} = ({h1}+{i*i})%{m}"
                 else:  # double
-                    idx = (h1 + i*h2) % m
-                    formula = f"({h1}+{i}*{h2})%{m}"
+                    h2_val = h2 if h2 is not None else 1
+                    idx = (h1 + i*h2_val) % m
+                    formula = f"({h1}+{i}*{h2_val})%{m}"
                 
                 self.steps_text.insert(tk.END, f"→ Compute idx = {formula} = {idx}\n")
                 self.steps_text.see(tk.END)

@@ -17,6 +17,7 @@ Date: October 25, 2025
 from hash_table import HashTable
 from utils import normalize_key, hash1 as h1_fn, hash2 as h2_fn
 import sys
+from typing import Optional
 
 
 class ConsoleSimulator:
@@ -28,7 +29,7 @@ class ConsoleSimulator:
     
     def __init__(self):
         """Initialize the console simulator."""
-        self.hash_table = None
+        self.hash_table: Optional[HashTable] = None
     
     def print_header(self):
         """Print the application header."""
@@ -240,7 +241,8 @@ class ConsoleSimulator:
                     elif mode == 'quadratic':
                         idx = (h1 + i*i) % m
                     else:
-                        idx = (h1 + i*h2) % m
+                        h2_val = h2 if h2 is not None else 1
+                        idx = (h1 + i*h2_val) % m
                     seq.append(idx)
                 print(f"       steps: start at {original} -> probes={probes} -> sequence={seq} -> placed at {final_idx}")
     

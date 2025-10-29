@@ -31,7 +31,7 @@ class Node:
     """
     def __init__(self, key):
         self.key = key
-        self.next = None
+        self.next: Optional['Node'] = None
 
 
 class HashTable:
@@ -57,20 +57,17 @@ class HashTable:
         
         Args:
             size (int): Number of buckets (default: 10)
-            mode (str): Collision handling mode - 'chaining', 'linear', or 'quadratic'
+            mode (str): Collision handling mode - 'chaining', 'linear', 'quadratic', 'double'
         """
         self.size = size
         self.mode = mode
         self.count = 0
-        self.collision_log = []
+        self.collision_log: list = []
         self.c1 = c1
         self.c2 = c2
         
         # Initialize table based on mode
-        if mode == 'chaining':
-            self.table = [None] * size  # Each bucket can hold a linked list head
-        else:  # Open addressing modes
-            self.table = [None] * size  # Each bucket holds a single key, TOMBSTONE, or None
+        self.table: list[Any] = [None] * size  # Holds Node, key, TOMBSTONE, or None
     
     def hash_function(self, key):
         """
