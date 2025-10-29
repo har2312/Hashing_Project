@@ -1,0 +1,14 @@
+# No external dependencies required
+# This project uses only Python standard library
+
+# Python version requirement:
+# Python >= 3.7
+
+# Standard library modules used:
+# - tkinter (for GUI)
+# - time (for timing)
+# - sys (for system operations)
+
+# To verify your setup, run:
+# python --version
+# python -c "import tkinter; print('tkinter is ready')"
