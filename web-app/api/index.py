@@ -8,9 +8,7 @@ from flask_cors import CORS
 import sys
 import os
 
-# Add parent directory to path to import hash_table module
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '../..'))
-
+# Import from the same directory (for Vercel deployment)
 from hash_table import HashTable, TOMBSTONE
 from utils import normalize_key, hash1 as h1_fn, hash2 as h2_fn
 
