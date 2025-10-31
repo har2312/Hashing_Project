@@ -7,12 +7,8 @@ import CollisionStepsPanel from './components/CollisionStepsPanel';
 import ToastBar from './components/ToastBar';
 import './App.css';
 
-// API base URL - automatically uses relative path in production
-const API_URL = process.env.REACT_APP_API_URL || (
-  process.env.NODE_ENV === 'production' 
-    ? '/api'  // In production (Vercel), use relative path
-    : 'https://hashing-api.vercel.app/api'  // In development, use localhost
-);
+// API base URL - uses deployed backend API
+const API_URL = process.env.REACT_APP_API_URL || 'https://hashing-api.vercel.app/api';
 
 function App() {
   const [tableId, setTableId] = useState(null);
