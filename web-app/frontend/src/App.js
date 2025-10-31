@@ -11,7 +11,7 @@ import './App.css';
 const API_URL = process.env.REACT_APP_API_URL || (
   process.env.NODE_ENV === 'production' 
     ? '/api'  // In production (Vercel), use relative path
-    : 'http://localhost:5000/api'  // In development, use localhost
+    : 'https://hashing-api.vercel.app/api'  // In development, use localhost
 );
 
 function App() {
