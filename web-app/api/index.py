@@ -140,9 +140,16 @@ def build_insert_steps(table, key):
             # Increment i
             steps.append({"line": incr_line, "text": f"i = {i} + 1", "vars": {"i": i + 1}, "highlight_bucket": None})
 
-    # If loop completes without insertion → table full
-    steps.append({"line": while_line, "text": f"Checking: i ({m}) < m ({m}) → False", "vars": {"i": m, "m": m}, "highlight_bucket": None})
-    steps.append({"line": ret_full_line, "text": "RETURN table_full", "vars": {}, "highlight_bucket": None})
+    # If loop completes without insertion
+    if first_tombstone is not None:
+        # We found a tombstone during probing - use it!
+        dest = first_tombstone
+        steps.append({"line": assign_line, "text": f"bucket[{dest}] = {key} (using tombstone slot)", "vars": {"idx": dest, "key": key}, "highlight_bucket": dest})
+        steps.append({"line": ret_ok_line, "text": "RETURN success", "vars": {"idx": dest}, "highlight_bucket": dest})
+    else:
+        # No tombstone found, table is full
+        steps.append({"line": while_line, "text": f"Checking: i ({m}) < m ({m}) → False", "vars": {"i": m, "m": m}, "highlight_bucket": None})
+        steps.append({"line": ret_full_line, "text": "RETURN table_full", "vars": {}, "highlight_bucket": None})
     return steps
 
 
