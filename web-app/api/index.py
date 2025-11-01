@@ -29,10 +29,13 @@ def get_table_state(table):
     buckets = []
     for i in range(table.size):
         contents = table.get_bucket_contents(i)
+        # Check if the actual slot is a tombstone
+        is_tombstone = (table.mode != 'chaining' and table.table[i] is TOMBSTONE)
+        
         bucket_data = {
             'index': i,
             'contents': contents,
-            'type': 'empty' if not contents else ('tombstone' if contents[0] == 'TOMBSTONE' else 'filled')
+            'type': 'tombstone' if is_tombstone else ('empty' if not contents else 'filled')
         }
         buckets.append(bucket_data)
     

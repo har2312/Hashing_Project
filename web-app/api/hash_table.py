@@ -555,7 +555,7 @@ class HashTable:
         else:
             key = self.table[index]
             if key is TOMBSTONE:
-                return ["TOMBSTONE"]
+                return []  # Return empty list for tombstone (UI will show "DEL")
             return [key] if key is not None else []
     
     def get_all_keys(self):
