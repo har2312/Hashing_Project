@@ -202,6 +202,10 @@ class HashTable:
             if self.table[index] != TOMBSTONE and self.table[index] == key:
                 return (False, index, False, f"Key '{key}' already exists at index {index}")
             
+            # Track first tombstone encountered
+            if first_tombstone is None and self.table[index] is TOMBSTONE:
+                first_tombstone = index
+            
             collision = True
             probes += 1
             index = (original_index + probes) % self.size
@@ -253,6 +257,10 @@ class HashTable:
         while self.table[index] is not None:
             if self.table[index] != TOMBSTONE and self.table[index] == key:
                 return (False, index, False, f"Key '{key}' already exists at index {index}")
+            
+            # Track first tombstone encountered
+            if first_tombstone is None and self.table[index] is TOMBSTONE:
+                first_tombstone = index
             
             collision = True
             probes += 1

@@ -112,8 +112,20 @@ def build_insert_steps(table, key):
         # Inspect slot
         slot_val = table.table[idx]
         if slot_val is None or slot_val is TOMBSTONE:
-            # Consider tombstone as available; if we saw a tombstone earlier, we will insert there
-            steps.append({"line": if_line, "text": f"bucket[{idx}] is EMPTY → True", "vars": {"idx": idx}, "highlight_bucket": idx})
+            # Track first tombstone if we haven't seen one yet
+            if first_tombstone is None and slot_val is TOMBSTONE:
+                first_tombstone = idx
+                # Show that we found a tombstone but will keep probing
+                steps.append({"line": if_line, "text": f"bucket[{idx}] is TOMBSTONE (reusable, but continue probing)", "vars": {"idx": idx}, "highlight_bucket": idx})
+                steps.append({"line": incr_line, "text": f"i = {i} + 1", "vars": {"i": i + 1}, "highlight_bucket": None})
+                continue
+            
+            # Found truly empty slot or we're at a tombstone and continuing
+            if slot_val is None:
+                steps.append({"line": if_line, "text": f"bucket[{idx}] is EMPTY → True", "vars": {"idx": idx}, "highlight_bucket": idx})
+            else:
+                steps.append({"line": if_line, "text": f"bucket[{idx}] is TOMBSTONE → reusable", "vars": {"idx": idx}, "highlight_bucket": idx})
+            
             dest = first_tombstone if first_tombstone is not None else idx
             steps.append({"line": assign_line, "text": f"bucket[{dest}] = {key}", "vars": {"idx": dest, "key": key}, "highlight_bucket": dest})
             steps.append({"line": ret_ok_line, "text": "RETURN success", "vars": {"idx": dest}, "highlight_bucket": dest})
@@ -122,9 +134,6 @@ def build_insert_steps(table, key):
             # Occupied
             occ_text = f"bucket[{idx}] is OCCUPIED → False"
             steps.append({"line": if_line, "text": occ_text, "vars": {"idx": idx}, "highlight_bucket": idx})
-            # Track first tombstone (if any)
-            if first_tombstone is None and slot_val is TOMBSTONE:
-                first_tombstone = idx
             # Increment i
             steps.append({"line": incr_line, "text": f"i = {i} + 1", "vars": {"i": i + 1}, "highlight_bucket": None})
 
