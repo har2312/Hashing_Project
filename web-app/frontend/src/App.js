@@ -304,6 +304,13 @@ function App() {
         </div>
 
         {/* Removed bottom status bar in favor of toast */}
+
+        {/* Professional Footer Text */}
+        <div className="text-center mt-6 pb-4">
+          <p className="text-sm font-medium text-black opacity-80" style={{ fontFamily: "'Inter', 'Poppins', sans-serif", fontWeight: 500 }}>
+            MADE BY HARKIRAT SINGH TAKHI
+          </p>
+        </div>
       </div>
     </div>
   );
