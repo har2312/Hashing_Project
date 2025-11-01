@@ -307,7 +307,7 @@ function App() {
 
         {/* Professional Footer Text */}
         <div className="text-center mt-6 pb-4">
-          <p className="text-sm font-medium text-black opacity-80" style={{ fontFamily: "'Inter', 'Poppins', sans-serif", fontWeight: 500 }}>
+          <p className="text-sm font-semibold text-white drop-shadow-md tracking-wide" style={{ fontFamily: "'Inter', 'Poppins', sans-serif", fontWeight: 600 }}>
             MADE BY HARKIRAT SINGH TAKHI
           </p>
         </div>
