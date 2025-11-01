@@ -17,6 +17,7 @@ function App() {
   const [steps, setSteps] = useState([]);
   const [currentStep, setCurrentStep] = useState(0);
   const [highlightedBucket, setHighlightedBucket] = useState(null);
+  const [bucketAnimationState, setBucketAnimationState] = useState({}); // New: track animation states
   const [animationSpeed, setAnimationSpeed] = useState(800);
   const [statusMessage, setStatusMessage] = useState('Ready to start! Create a hash table to begin.');
 
@@ -176,8 +177,10 @@ function App() {
     // Reset to beginning
     setCurrentStep(-1);
     setHighlightedBucket(null);
+    setBucketAnimationState({});
     
     let stepIndex = 0;
+    let previousBucket = null;
     
     const animate = () => {
       if (stepIndex < stepsList.length) {
@@ -185,12 +188,52 @@ function App() {
         setCurrentStep(stepIndex);
         
         const step = stepsList[stepIndex];
+        const currentBucket = step.highlight_bucket;
         
-        // Highlight bucket if specified
-        if (step.highlight_bucket !== null && step.highlight_bucket !== undefined) {
-          setHighlightedBucket(step.highlight_bucket);
+        // Determine animation type based on step text
+        if (currentBucket !== null && currentBucket !== undefined) {
+          const stepText = step.text?.toLowerCase() || '';
+          
+          // Check for collision (occupied, TOMBSTONE check, or explicit collision mention)
+          const isCollision = stepText.includes('occupied') || 
+                              stepText.includes('collision') ||
+                              stepText.includes('→ false');
+          
+          // Check for successful insertion
+          const isInsertion = stepText.includes('bucket[') && 
+                              (stepText.includes('=') && !stepText.includes('tombstone')) &&
+                              (stepText.includes('insert') || /bucket\[\d+\]\s*=\s*\d+/.test(stepText));
+          
+          // Check for "checking" or probing steps
+          const isProbing = stepText.includes('idx =') || 
+                           stepText.includes('checking:') ||
+                           stepText.includes('→ true');
+          
+          if (isInsertion) {
+            // Flash blue first, then glow green for successful insertion
+            setBucketAnimationState({ [currentBucket]: 'inserting' });
+            setTimeout(() => {
+              setBucketAnimationState({ [currentBucket]: 'success' });
+            }, animationSpeed * 0.4);
+          } else if (isCollision && previousBucket !== null) {
+            // Flash red on collision, then "slide" to next
+            setBucketAnimationState({ [previousBucket]: 'collision' });
+            setTimeout(() => {
+              setBucketAnimationState({ [currentBucket]: 'probing' });
+            }, animationSpeed * 0.5);
+          } else if (isProbing) {
+            // Blue flash for probing/checking
+            setBucketAnimationState({ [currentBucket]: 'probing' });
+          } else {
+            // Default highlight
+            setBucketAnimationState({ [currentBucket]: 'highlight' });
+          }
+          
+          setHighlightedBucket(currentBucket);
+          previousBucket = currentBucket;
         } else {
           setHighlightedBucket(null);
+          setBucketAnimationState({});
         }
         
         // Update status with current step text
@@ -204,6 +247,7 @@ function App() {
         // Animation complete - update final state
         setTableState(finalState);
         setHighlightedBucket(null);
+        setBucketAnimationState({});
         setStatusMessage(finalMessage || 'Operation completed');
       }
     };
@@ -245,6 +289,7 @@ function App() {
           <HashTableVisualization
             tableState={tableState}
             highlightedBucket={highlightedBucket}
+            bucketAnimationState={bucketAnimationState}
           />
           <PseudocodePanel
             pseudocode={pseudocode}

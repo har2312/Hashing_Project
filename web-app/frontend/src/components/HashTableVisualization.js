@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function HashTableVisualization({ tableState, highlightedBucket }) {
+function HashTableVisualization({ tableState, highlightedBucket, bucketAnimationState = {} }) {
   // Calculate row height dynamically so the entire list fits without scrolling
   const [rowHeight, setRowHeight] = useState(18);
   const n = tableState?.size || 10;
@@ -40,7 +40,34 @@ function HashTableVisualization({ tableState, highlightedBucket }) {
   };
 
   const getBucketColor = (bucket, index) => {
-    if (highlightedBucket === index) return 'bg-yellow-200 border-yellow-500 shadow-lg';
+    const animState = bucketAnimationState[index];
+    
+    // Animation states take priority
+    if (animState === 'inserting') {
+      // Blue flash when checking/targeting cell
+      return 'bg-blue-400 border-blue-600 shadow-xl animate-pulse';
+    }
+    if (animState === 'success') {
+      // Green glow when successfully inserted
+      return 'bg-green-300 border-green-600 shadow-2xl shadow-green-400/50 animate-pulse';
+    }
+    if (animState === 'collision') {
+      // Red flash on collision
+      return 'bg-red-400 border-red-600 shadow-xl animate-pulse';
+    }
+    if (animState === 'probing') {
+      // Blue flash for probing next cell
+      return 'bg-blue-300 border-blue-500 shadow-lg';
+    }
+    if (animState === 'highlight') {
+      // Default highlight (yellow)
+      return 'bg-yellow-200 border-yellow-500 shadow-lg';
+    }
+    
+    // Standard colors when no animation
+    if (highlightedBucket === index && !animState) {
+      return 'bg-yellow-200 border-yellow-500 shadow-lg';
+    }
     if (bucket.type === 'empty') return 'bg-white border-gray-300';
     if (bucket.type === 'tombstone') return 'bg-gray-300 border-gray-500';
     return 'bg-blue-100 border-blue-400';

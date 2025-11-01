@@ -31,9 +31,8 @@ function ControlPanel({
       return;
     }
     
-    // Handle multiple keys (comma-separated)
-    const keys = keyInput.split(',').map(k => k.trim()).filter(k => k);
-    keys.forEach(key => onInsertKey(key));
+    // Insert single key
+    onInsertKey(keyInput.trim());
     setKeyInput('');
   };
 
@@ -87,7 +86,7 @@ function ControlPanel({
 
         <div className="flex items-center gap-1.5 ml-auto">
           <input type="text" value={keyInput} onChange={(e)=>setKeyInput(e.target.value)}
-            placeholder="keys (comma sep)" onKeyPress={(e)=> e.key==='Enter' && handleInsertKey()}
+            placeholder="enter key" onKeyPress={(e)=> e.key==='Enter' && handleInsertKey()}
             className="w-52 px-1.5 py-0.5 text-[10px] border border-gray-300 rounded" />
           <button onClick={handleInsertKey} className="bg-green-600 hover:bg-green-700 text-white text-[10px] font-semibold py-1 px-2 rounded">➕ Insert</button>
           <button onClick={handleSearchKey} className="bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-semibold py-1 px-2 rounded">🔍 Search</button>
